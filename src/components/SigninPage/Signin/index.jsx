@@ -14,15 +14,16 @@ const SigninForm = styled.form`
   width: 100%;
 `
 const SubmitBtn = styled.button`
-  width: 100%;
+  margin-top: 12px;
+  color: white;
+  height: 58px;
+  width: 51%;
   padding: 8px 12px;
   border: none;
-  border-radius: 8px;
+  border-radius: 52px;
   font-weight: bold;
-  font-size: 14px;
-  background-color: #fbfb4f;
-  /* background-color: ${(props) =>
-    props.isValid ? '#fbfb4f' : '#ffff67c4'}; */
+  font-size: 19px;
+  background: #5596f2;
   margin-bottom: 8px;
   &:hover {
     cursor: pointer;
