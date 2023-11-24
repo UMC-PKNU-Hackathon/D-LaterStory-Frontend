@@ -72,6 +72,7 @@ const UserToolBtn = styled.button`
   }
 `
 const LoginBtn = styled(UserToolBtn)``
+const WriterBtn = styled(UserToolBtn)``
 const LogoutBtn = styled(UserToolBtn)``
 const ProfileBtn = styled(UserToolBtn)``
 const DropDownMenuOverlay = styled.div`
@@ -134,6 +135,9 @@ const NavigationHeader = () => {
         </SearchBtn>
         {isAuth ? (
           <ProtectedBtnList>
+            <WriterBtn onClick={() => HandleNavigate('/review/writer')}>
+              새 글 작성
+            </WriterBtn>
             <ProfileBtn onClick={() => HandleNavigate('/profile/:userId')}>
               프로필
             </ProfileBtn>
