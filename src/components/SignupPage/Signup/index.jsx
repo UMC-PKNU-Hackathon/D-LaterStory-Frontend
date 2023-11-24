@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import useUserService from '../../../apis/useUserService'
 import { useForm } from 'react-hook-form'
+import { useMutation } from '@tanstack/react-query'
 import AuthInput from '../../common/AuthForm'
+import { useNavigate } from 'react-router'
 
 const SigninForm = styled.form`
   display: flex;
@@ -25,11 +28,17 @@ const SubmitBtn = styled.button`
   }
 `
 const Signup = () => {
+  const navigate = useNavigate()
   const {
     register,
     formState: { isValid },
     handleSubmit,
   } = useForm()
+  const userService = useUserService()
+  const { mutate } = useMutation({
+    mutationFn: ({ id, password, nickname }) =>
+      userService.register(id, password, nickname),
+  })
 
   const fields = {
     id: register('id', { required: true }),
@@ -39,6 +48,17 @@ const Signup = () => {
 
   const handleSignup = ({ id, password, nickname }) => {
     console.log(id, password, nickname)
+    mutate(
+      { id, password, nickname },
+      {
+        onSuccess: () => {
+          navigate('/login')
+        },
+        onError: (error) => {
+          console.log(error)
+        },
+      },
+    )
   }
 
   return (

@@ -4,6 +4,7 @@ import { FaSearch } from 'react-icons/fa'
 import { useRecoilValue } from 'recoil'
 import userState from '../../../store/atom/userState'
 import { Link, useNavigate } from 'react-router-dom'
+import useUserService from '../../../apis/useUserService'
 
 const NavigationHeaderWrapper = styled.nav`
   display: flex;
@@ -91,6 +92,7 @@ const DropDownMenu = styled.div`
 
 const NavigationHeader = () => {
   const navigate = useNavigate()
+  const userService = useUserService()
   const [isHover, setIsHover] = useState(false)
   const { isAuth } = useRecoilValue(userState)
 
@@ -116,6 +118,9 @@ const NavigationHeader = () => {
   const HandleDropDownOff = () => {
     setIsHover(false)
   }
+  const HandleLogout = () => {
+    userService.logout()
+  }
 
   return (
     <NavigationHeaderWrapper>
@@ -129,10 +134,10 @@ const NavigationHeader = () => {
         </SearchBtn>
         {isAuth ? (
           <ProtectedBtnList>
-            <LogoutBtn>로그아웃</LogoutBtn>
             <ProfileBtn onClick={() => HandleNavigate('/profile/:userId')}>
               프로필
             </ProfileBtn>
+            <LogoutBtn onClick={HandleLogout}>로그아웃</LogoutBtn>
           </ProtectedBtnList>
         ) : (
           <LoginBtn onClick={() => HandleNavigate('/login')}>로그인</LoginBtn>
