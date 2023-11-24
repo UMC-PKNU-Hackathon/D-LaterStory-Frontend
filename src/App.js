@@ -6,7 +6,7 @@ import ProtectedRoute from './pages/ProtectedRoute'
 import SigninPage from './pages/SigninPage'
 import SignupPage from './pages/SignupPage'
 import MainPage from './pages/MainPage'
-import PostPage from './pages/PostPage'
+import ReviewPage from './pages/ReviewPage'
 import ProfilePage from './pages/ProfilePage'
 
 function Layout() {
@@ -18,7 +18,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<MainPage />} />
-        <Route path="post/:postId" element={<PostPage />} />
+        <Route path="post/:postId" element={<ReviewPage />} />
         <Route element={<NotAuthRoute />}>
           <Route path="/login" element={<SigninPage />} />
           <Route path="signup" element={<SignupPage />} />
