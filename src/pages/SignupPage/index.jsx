@@ -20,6 +20,7 @@ const SignupFormWrapper = styled.div`
 `
 const FormTitle = styled.h3`
   margin: 0;
+  font-size: 40px;
   margin-bottom: 24px;
 `
 

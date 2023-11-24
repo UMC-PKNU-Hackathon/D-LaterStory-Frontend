@@ -20,19 +20,21 @@ const SigninFormWrapper = styled.div`
   margin-top: 80px;
 `
 const FormTitle = styled.h3`
+  font-size: 40px;
   margin: 0;
   margin-bottom: 24px;
 `
 const SignupLink = styled(Link)`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 8px 12px;
+  text-align: center;
+  height: 58px;
+  width: 51%;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  background-color: #fbfb4f;
-  font-size: 14px;
+  border-radius: 52px;
+  font-size: 16px;
+  margin-bottom: 8px;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const SigninPage = () => {
@@ -41,7 +43,7 @@ const SigninPage = () => {
       <SigninFormWrapper>
         <FormTitle>로그인</FormTitle>
         <SigninForm />
-        <SignupLink to={'/signup'}>회원가입</SignupLink>
+        <SignupLink to={'/signup'}>{'회원가입 하러가기 >'} </SignupLink>
       </SigninFormWrapper>
     </SigninPageWrapper>
   )
