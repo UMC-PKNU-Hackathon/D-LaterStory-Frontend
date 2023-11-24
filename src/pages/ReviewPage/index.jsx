@@ -141,6 +141,11 @@ const ReviewPage = () => {
     display: inline;
     top: 13px;
   `
+  const LikeCount = styled.span``
+  const LikeSpan = styled.span`
+    margin-left: 30px;
+    margin-right: 7px;
+  `
   const navigate = useNavigate()
   const HandleNavigate = (path) => {
     navigate(path)
@@ -156,6 +161,8 @@ const ReviewPage = () => {
             <ReviewTitle>후기 제목입니다.</ReviewTitle>
             <ReviewWriter>작성자</ReviewWriter>
             <span>2023-11-24</span>
+            <LikeSpan>좋아요</LikeSpan>
+            <LikeCount>14</LikeCount>
             <BtnBox>
               <LikeBtnDiv>
                 <LikeBtn />
