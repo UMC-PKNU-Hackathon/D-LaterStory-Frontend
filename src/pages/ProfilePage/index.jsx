@@ -12,7 +12,7 @@ const ProfilePage = () => {
     width: 100%;
   `
   const MaxWidth = styled.div`
-    width: 700px;
+    width: 1080px;
   `
   const BackBtn = styled.button`
     display: flex;
@@ -34,7 +34,7 @@ const ProfilePage = () => {
     margin-bottom: 50px;
     padding: 10px 30px;
   `
-  const LikeBox = styled.div`
+  const MyReviewBox = styled.div`
     margin-bottom: 50px;
   `
 
@@ -51,11 +51,11 @@ const ProfilePage = () => {
           </BackBtn>
         </div>
         <H1Text>닉네임님의 마이 페이지</H1Text>
-        <LikeBox>
-          <H2Text>좋아요한 후기</H2Text>
+        <MyReviewBox>
+          <H2Text>내가 작성한 후기</H2Text>
           <ReviewList />
-        </LikeBox>
-        <H2Text>내가 작성한 후기</H2Text>
+        </MyReviewBox>
+        <H2Text>좋아요한 후기</H2Text>
         <ReviewList />
       </MaxWidth>
     </ProfileContainer>
