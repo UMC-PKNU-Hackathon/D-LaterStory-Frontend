@@ -134,8 +134,10 @@ const NavigationHeader = () => {
         </SearchBtn>
         {isAuth ? (
           <ProtectedBtnList>
+            <ProfileBtn onClick={() => HandleNavigate('/profile/:userId')}>
+              프로필
+            </ProfileBtn>
             <LogoutBtn onClick={HandleLogout}>로그아웃</LogoutBtn>
-            <ProfileBtn>프로필</ProfileBtn>
           </ProtectedBtnList>
         ) : (
           <LoginBtn onClick={() => HandleNavigate('/login')}>로그인</LoginBtn>
