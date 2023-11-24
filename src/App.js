@@ -8,6 +8,7 @@ import SignupPage from './pages/SignupPage'
 import MainPage from './pages/MainPage'
 import ReviewPage from './pages/ReviewPage'
 import ProfilePage from './pages/ProfilePage'
+import ReviewWriterPage from './pages/ReviewWriterPage'
 import NavigationHeader from './components/common/NavigationHeader'
 import SearchPage from './pages/SearchPage'
 
@@ -33,6 +34,7 @@ function App() {
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/profile/:userId" element={<ProfilePage />} />
+          <Route path="/review/writer" element={<ReviewWriterPage />} />
         </Route>
       </Route>
     </Routes>
