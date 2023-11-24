@@ -25,6 +25,7 @@
         ],
         "space-before-function-paren": "off",
         "comma-dangle":"off",
-        "multiline-ternary":"off"
+        "multiline-ternary":"off",
+        "react/prop-types": "off"
     }
 }
