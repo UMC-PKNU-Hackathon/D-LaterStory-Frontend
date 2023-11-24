@@ -2,6 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { useForm } from 'react-hook-form'
 import AuthInput from '../../common/AuthForm'
+import { useMutation } from '@tanstack/react-query'
+import useUserService from '../../../apis/useUserService'
+import { useSetRecoilState } from 'recoil'
+import userState from '../../../store/atom/userState'
 
 const SigninForm = styled.form`
   display: flex;
@@ -30,6 +34,11 @@ const Signin = () => {
     formState: { isValid },
     handleSubmit,
   } = useForm()
+  const userService = useUserService()
+  const { mutate } = useMutation({
+    mutationFn: ({ id, password }) => userService.login(id, password),
+  })
+  const setUserState = useSetRecoilState(userState)
 
   const fields = {
     id: register('id', { required: true }),
@@ -37,7 +46,20 @@ const Signin = () => {
   }
 
   const handleLogin = ({ id, password }) => {
-    console.log(id, password)
+    mutate(
+      { id, password },
+      {
+        onSuccess: (data) => {
+          const { user, accessToken } = data.data
+          console.log(data)
+          localStorage.setItem('accessToken', accessToken)
+          setUserState({ user, isAuth: true })
+        },
+        onError: (error) => {
+          console.log(error)
+        },
+      },
+    )
   }
 
   return (
