@@ -9,9 +9,16 @@ import MainPage from './pages/MainPage'
 import ReviewPage from './pages/ReviewPage'
 import ProfilePage from './pages/ProfilePage'
 import ReviewWriterPage from './pages/ReviewWriterPage'
+import NavigationHeader from './components/common/NavigationHeader'
+import SearchPage from './pages/SearchPage'
 
 function Layout() {
-  return <Outlet />
+  return (
+    <>
+      <NavigationHeader />
+      <Outlet />
+    </>
+  )
 }
 
 function App() {
@@ -19,14 +26,15 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<MainPage />} />
-        <Route path="post/:postId" element={<ReviewPage />} />
+        <Route path="/review/:reviewId" element={<ReviewPage />} />
+        <Route path="/search?" element={<SearchPage />} />
         <Route element={<NotAuthRoute />}>
           <Route path="/login" element={<SigninPage />} />
-          <Route path="signup" element={<SignupPage />} />
+          <Route path="/signup" element={<SignupPage />} />
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/profile/:userId" element={<ProfilePage />} />
-          <Route path="reviewWriter" element={<ReviewWriterPage />} />
+          <Route path="/review/writer" element={<ReviewWriterPage />} />
         </Route>
       </Route>
     </Routes>

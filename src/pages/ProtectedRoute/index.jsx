@@ -1,8 +1,12 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, Navigate } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
+import userState from '../../store/atom/userState'
 
 const ProtectedRoute = () => {
-  return <Outlet />
+  const { isAuth } = useRecoilValue(userState)
+
+  return isAuth ? <Outlet /> : <Navigate to="/login" />
 }
 
 export default ProtectedRoute
