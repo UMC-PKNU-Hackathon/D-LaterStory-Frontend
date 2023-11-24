@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { IoArrowBack } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
+import LikeBtn from '../../components/common/LikeButton'
+import Comment from '../../components/ReviewPage/Comment'
 
 const ReviewPage = () => {
   const ReviewContainer = styled.div`
@@ -11,7 +13,7 @@ const ReviewPage = () => {
     width: 100%;
   `
   const ReviewImg = styled.img`
-    width: 850px;
+    width: 800px;
   `
   const ReviewTitle = styled.h1`
     margin-top: 40px;
@@ -43,6 +45,7 @@ const ReviewPage = () => {
   `
   const LinkBtnBox = styled.div`
     text-align: center;
+    margin-bottom: 20px;
   `
   const CommentInput = styled.input`
     width: 100%;
@@ -54,14 +57,28 @@ const ReviewPage = () => {
     font-size: 16px;
     font-weight: 500;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   `
-  const ReviewText = styled.div`
+  const ReviewText = styled.p`
     width: 100%;
+    margin-bottom: 50px;
   `
-  const CommentSubmit = styled.button``
+  const CommentSubmit = styled.button`
+    background-color: #2248d4fa;
+    height: fit-content;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 24px;
+    &:hover {
+      cursor: pointer;
+    }
+  `
   const SubmitBtnBox = styled.div`
     text-align: right;
+    margin-bottom: 70px;
   `
   const MaxWidth = styled.div`
     width: 1080px;
@@ -83,6 +100,47 @@ const ReviewPage = () => {
       background-color: #ccc;
     }
   `
+  const EditBtn = styled.button`
+    margin-left: 15px;
+    background-color: gray;
+    height: fit-content;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 24px;
+    &:hover {
+      cursor: pointer;
+      background-color: #373737;
+    }
+  `
+  const DeleteBtn = styled.button`
+    margin-left: 10px;
+    background-color: #b92626;
+    height: fit-content;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 24px;
+    &:hover {
+      cursor: pointer;
+      background-color: #700909;
+    }
+  `
+  const BtnBox = styled.div`
+    text-align: right;
+  `
+  const TagText = styled.div`
+    border-bottom: 1px solid gray;
+    padding-bottom: 15px;
+  `
+  const LikeBtnDiv = styled.div`
+    display: inline;
+    top: 13px;
+  `
   const navigate = useNavigate()
   const HandleNavigate = (path) => {
     navigate(path)
@@ -95,27 +153,59 @@ const ReviewPage = () => {
             <IoArrowBack size={30} />
           </BackBtn>
           <TitleBox>
-            <ReviewTitle>후기 제목입니다.dddkd</ReviewTitle>
+            <ReviewTitle>후기 제목입니다.</ReviewTitle>
             <ReviewWriter>작성자</ReviewWriter>
             <span>2023-11-24</span>
+            <BtnBox>
+              <LikeBtnDiv>
+                <LikeBtn />
+              </LikeBtnDiv>
+              <EditBtn>수정</EditBtn>
+              <DeleteBtn>삭제</DeleteBtn>
+            </BtnBox>
           </TitleBox>
           <div>
             <ImgBox>
               <ReviewImg src="https://www.busanjob.net/upload/editor/20230214100849.jpg" />
             </ImgBox>
-            <ReviewText>상세 내용</ReviewText>
+            <ReviewText>
+              안녕하세요. 제가요.. 후기를 남깁니다. 이러쿵저러쿵 . 블라 블라 .
+              어쩌고 저쩌고 .. 아무말안녕하세요. 제가요.. 후기를 남깁니다.
+              이러쿵저러쿵 . 블라 블라 . 어쩌고 저쩌고 .. 아무말안녕하세요.
+              제가요.. 후기를 남깁니다. 이러쿵저러쿵 . 블라 블라 . 어쩌고 저쩌고
+              .. 아무말안녕하세요. 제가요.. 후기를 남깁니다. 이러쿵저러쿵 . 블라
+              블라 . 어쩌고 저쩌고 .. 아무말안녕하세요. 제가요.. 후기를
+              남깁니다. 이러쿵저러쿵 . 블라 블라 . 어쩌고 저쩌고 ..
+              아무말안녕하세요. 제가요.. 후기를 남깁니다. 이러쿵저러쿵 . 블라
+              블라 . 어쩌고 저쩌고 .. 아무말 안녕하세요. 제가요.. 후기를
+              남깁니다. 이러쿵저러쿵 . 블라 블라 . 어쩌고 저쩌고 ..
+              아무말안녕하세요. 제가요.. 후기를 남깁니다. 이러쿵저러쿵 . 블라
+              블라 . 어쩌고 저쩌고 .. 아무말안녕하세요. 제가요.. 후기를
+              남깁니다. 이러쿵저러쿵 . 블라 블라 . 어쩌고 저쩌고 ..
+              아무말안녕하세요. 제가요.. 후기를 남깁니다. 이러쿵저러쿵 . 블라
+              블라 . 어쩌고 저쩌고 .. 아무말안녕하세요. 제가요.. 후기를
+              남깁니다. 이러쿵저러쿵 . 블라 블라 . 어쩌고 저쩌고 ..
+              아무말안녕하세요. 제가요.. 후기를 남깁니다. 이러쿵저러쿵 . 블라
+              블라 . 어쩌고 저쩌고 .. 아무말
+            </ReviewText>
             <LinkBtnBox>
-              <LinkButton>신청하러가기</LinkButton>
+              <LinkButton onClick={() => HandleNavigate('/')}>
+                신청하러가기
+              </LinkButton>
             </LinkBtnBox>
           </div>
-          <div>#해시태그</div>
+          <TagText>#해시태그</TagText>
           <div>
             <h2>댓글</h2>
             <CommentInput type="text" />
             <SubmitBtnBox>
               <CommentSubmit>댓글 작성</CommentSubmit>
             </SubmitBtnBox>
-            <div>댓글목록</div>
+            <div>
+              {Array.from({ length: 5 }).map((_, idx) => (
+                <Comment key={idx}></Comment>
+              ))}
+            </div>
           </div>
         </MaxWidth>
       </ReviewContainer>
