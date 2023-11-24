@@ -8,6 +8,7 @@ import SignupPage from './pages/SignupPage'
 import MainPage from './pages/MainPage'
 import ReviewPage from './pages/ReviewPage'
 import ProfilePage from './pages/ProfilePage'
+import ReviewWriterPage from './pages/ReviewWriterPage'
 
 function Layout() {
   return <Outlet />
@@ -25,6 +26,7 @@ function App() {
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/profile/:userId" element={<ProfilePage />} />
+          <Route path="reviewWriter" element={<ReviewWriterPage />} />
         </Route>
       </Route>
     </Routes>
