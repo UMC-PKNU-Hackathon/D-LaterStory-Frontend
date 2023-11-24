@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { IoArrowBack } from 'react-icons/io5'
+import { useNavigate } from 'react-router-dom'
 
 const ReviewPage = () => {
   const ReviewContainer = styled.div`
@@ -67,11 +69,31 @@ const ReviewPage = () => {
   const ImgBox = styled.div`
     text-align: center;
   `
+  const BackBtn = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    border-radius: 9999px;
+    padding: 0;
+    padding: 8px;
+    &:hover {
+      cursor: pointer;
+      background-color: #ccc;
+    }
+  `
+  const navigate = useNavigate()
+  const HandleNavigate = (path) => {
+    navigate(path)
+  }
   return (
     <>
       <ReviewContainer>
         <MaxWidth>
-          <button>돌아가기</button>
+          <BackBtn onClick={() => HandleNavigate('/')}>
+            <IoArrowBack size={30} />
+          </BackBtn>
           <TitleBox>
             <ReviewTitle>후기 제목입니다.dddkd</ReviewTitle>
             <ReviewWriter>작성자</ReviewWriter>
